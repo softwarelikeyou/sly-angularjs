@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Software Like You, LLC AngularJS Project</title>
+
+    <link rel="stylesheet" href="../bower_components/angular-ui-grid/ui-grid.css" />
+    <link rel="stylesheet" href="../bower_components/jquery-ui/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+
+</head>
+<body>
+    <div ng-view></div>
+    <script src="../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-route/angular-route.js"></script>
+    <script src="../bower_components/a0-angular-storage/dist/angular-storage.js"></script>
+    <script src="../bower_components/angular-cookies/angular-cookies.js"></script>
+    <script src="../bower_components/angular-resource/angular-resource.js"></script>
+    <script src="../bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <script src="../bower_components/angular-ui-grid/ui-grid.js"></script>
+    <script src="../bower_components/angular-translate/angular-translate.js"></script>
+    <script src="../bower_components/angular-translate-loader-url/angular-translate-loader-url.js"></script>
+    <script src="../bower_components/angular-translate-loader-static-files/angular-translate-loader-static-files.js"></script>
+    <script src="../bower_components/angular-ui-slider/src/slider.js"></script>
+    <script src="../bower_components/angular-bootstrap-show-errors/src/showErrors.js"></script>
+    <script src="../bower_components/angular-messages/angular-messages.js"></script>
+    <script src="../bower_components/jquery-ui/jquery-ui.js"></script>
+
+    <script src="interceptors/interceptors.module.js"></script>
+    <script src="interceptors/http-unauthorized-interceptor.js"></script>
+    <script src="interceptors/http-request-interceptor.js"></script>
+
+    <script src="services/services.module.js"></script>
+    <script src="services/session-service/session-service.js"></script>
+    <script src="services/navigation-service/navigation-service.js"></script>
+    <script src="services/user-service/user-service.js"></script>
+    <script src="services/base64-service/base64-service.js"></script>
+
+    <script src="common/libraries/libraries.module.js"></script>
+    <script src="common/libraries/underscore.js"></script>
+    <script src="common/validators/validators.module.js"></script>
+    <script src="common/validators/resolvedUsername.js"></script>
+    <script src="common/validators/validPassword.js"></script>
+    <script src="common/validators/passwordCheck.js"></script>
+    <script src="common/validators/arrayMinLength.js"></script>
+
+    <script src="views/views.module.js"></script>
+    <script src="views/users/users.js"></script>
+    <script src="views/users/users.route.js"></script>
+    <script src="views/users/user-create/user-create.js"></script>
+    <script src="views/users/user-create/user-create.route.js"></script>
+    <script src="views/users/user-edit/user-edit.js"></script>
+    <script src="views/users/user-edit/user-edit.route.js"></script>
+    <script src="views/dashboard/dashboard.js"></script>
+    <script src="views/dashboard/dashboard.route.js"></script>
+    <script src="views/login-page/login-page.js"></script>
+    <script src="views/login-page/login-page.route.js"></script>
+    <script src="views/logout-page/logout-page.js"></script>
+    <script src="views/logout-page/logout-page.route.js"></script>
+
+    <script src="directives/top-bar/top-bar.js"></script>
+    <script src="directives/error-messages/error-messages.js"></script>
+    <script src="directives/user-types/user-types.js"></script>
+
+    <script src="modals/modals-module.js"></script>
+    <script src="modals/remove-user/remove-user.js"></script>
+
+    <script src="app.js"></script>
+</body>
+</html>

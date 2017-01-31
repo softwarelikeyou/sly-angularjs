@@ -1,0 +1,125 @@
+<top-bar class="navbar-fixed-top"></top-bar>
+<div class="container">
+    <ol class="breadcrumb">
+        <!--<li><a href="#/dashboard">{{ 'HOME' | translate }}</a></li>-->
+        <!--<li ng-if="userCreateCtrl.CreateMode">{{ ::userCreateCtrl.user.username }}</li>-->
+    </ol>
+
+    <form id="user-form" name="userForm" ng-submit="userCreateCtrl.submitUserCreate(userForm)"
+          novalidate loading-mask="userCreateCtrl.loading" loading-mask-window>
+
+        <sly-error-messages error-messages="userCreateCtrl.errors"></sly-error-messages>
+
+        <div>
+            <div class="alert alert-danger" ng-if="userForm.$submitted && userForm.$error.required">
+                <i class="fa fa-times-circle"></i>
+                <span>{{ 'YOU_MUST_COMPLETE_ALL_REQUIRED_FIELDS' | translate }}</span>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-body">
+
+                <div class="form-group row required" show-errors>
+                    <div class="col-md-3">
+                        <label for="username" class="control-label">{{ 'USER_NAME' | translate }}: </label>
+                    </div>
+                    <div class="col-md-9 form-inline">
+                        <input id="username"
+                               name="username"
+                               type="text"
+                               ng-model="userCreateCtrl.user.username"
+                               required
+                               resolved-username
+                               ng-model-options="{ updateOn: 'blur' }"
+                               class="form-control"
+                               ng-disabled="userCreateCtrl.CreateMode">
+                        <div ng-messages="userForm.username.$error" class="inline-messages">
+                            <div ng-message="resolvedUsername" class="alert alert-danger alert-inline">
+                                <i class="fa fa-times-circle"></i>
+                                <span>{{ 'USERNAME_ALREADY_EXISTS' | translate }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row required">
+                    <div class="col-md-3">
+                        <label for="username" class="control-label">{{ 'USER_TYPE' | translate }}: </label>
+                    </div>
+                    <div class="col-md-9 form-inline">
+                        <user-types id="user-types" form="userForm" userType="userCreateCtrl.user.userType"></user-types>
+                    </div>
+                </div>
+
+                <div class="form-group row required" show-errors>
+                    <div class="col-md-3">
+                        <label for="username" class="control-label">{{ 'DISPLAY_NAME' | translate }}: </label>
+                    </div>
+                    <div class="col-md-9 form-inline">
+                        <input id="displayName"
+                               name="displayName"
+                               type="text"
+                               ng-model="userCreateCtrl.user.displayName"
+                               required
+                               ng-model-options="{ updateOn: 'blur' }"
+                               class="form-control">
+                    </div>
+                </div>
+
+                <div class="form-group row required" show-errors>
+                    <div class="col-md-3">
+                        <label for="password" class="control-label">{{ 'PASSWORD' | translate }}: </label>
+                    </div>
+                    <div class="col-md-9 form-inline">
+                        <input id="password"
+                               name="password"
+                               type="text"
+                               ng-model="userCreateCtrl.user.password"
+                               required
+                               valid-password=""
+                               ng-model-options="{ updateOn: 'blur' }"
+                               class="form-control">
+                        <div ng-messages="userForm.password.$error" class="inline-messages">
+                            <div ng-message="validPassword" class="alert alert-danger alert-inline">
+                                <i class="fa fa-times-circle"></i>
+                                <span>{{ 'THE_PASSWORD_MUST_BE_GREATER_THAN_8_CHARACTERS' | translate }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row required" show-errors>
+                    <div class="col-md-3">
+                        <label for="confirm-password" class="control-label">{{ 'CONFIRM_PASSWORD' | translate }}: </label>
+                    </div>
+                    <div class="col-md-9 form-inline">
+                        <input id="confirm-password"
+                               name="confirmPassword"
+                               type="text"
+                               ng-model="userCreateCtrl.user.confirmPassword"
+                               required
+                               password-check="userCreateCtrl.user.password"
+                               ng-model-options="{ updateOn: 'blur' }"
+                               class="form-control">
+                        <div ng-messages="userForm.confirmPassword.$error" class="inline-messages">
+                            <div ng-message="passwordMatch" class="alert alert-danger alert-inline">
+                                <i class="fa fa-times-circle"></i>
+                                <span>{{ 'PASSWORD_AND_CONFIRM_DONT_MATCH' | translate }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="pull-right">
+            <a href="#/users">{{ 'CANCEL' | translate }}</a>
+            <input type="submit" class="btn btn-primary" value="{{ 'SAVE' | translate }}" />
+        </div>
+
+        <div class="clearfix"></div>
+        <br/>
+    </form>
+</div>

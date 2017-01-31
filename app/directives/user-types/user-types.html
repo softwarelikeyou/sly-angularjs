@@ -1,0 +1,7 @@
+<div class="form-group row required">
+    <div class="col-md-5">
+        <select id="user-type" name="userType" class="form-control" ng-model="userType" required ng-style="{'width': 173 + 'px'}">
+            <option ng-repeat="userType in userTypesCtrl.userTypes" value="{{userType}}">{{userType | translate}}</option>
+        </select>
+    </div>
+</div>

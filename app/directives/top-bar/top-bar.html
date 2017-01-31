@@ -1,0 +1,36 @@
+<div class="topbar">
+    <div class="container">
+        <div class="row">
+            <div class="topbar-logo-container col-md-3">
+                <div class="row">
+                    <a href="#/dashboard">
+                        <div class="col-md-3" style="line-height: 2em; display: inline-block">
+                            <i class="fa fa-server fa-3x"></i>
+                        </div>
+                        <div class="col-md-9">
+                            <div class="row">{{ 'LOCAL' | translate }}</div>
+                            <div class="row">{{ 'SERVER_BACKUP_MANAGER' | translate }}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="topbar-btn-container col-md-7" ng-if="topBarCtrl.translationData.user != null">
+                <a class="topbar-btn topbar-btn-active" href="#/dashboard">{{ 'HOME' | translate }}</a>
+                <a class="topbar-btn">{{ 'SETTINGS' | translate }}</a>
+                <a class="topbar-btn topbar-btn-active" href="#/users">{{ 'USERS' | translate }}</a>
+            </div>
+            <div class="col-md-2" ng-if="topBarCtrl.translationData.user != null">
+                <div class="btn-group pull-right" uib-dropdown is-open="userMenu.isopen">
+                    <button class="btn topbar-user-btn" type="button" uib-dropdown-toggle aria-haspopup="true" aria-expanded="true">
+                        {{ 'WELCOME_USER' | translate:topBarCtrl.translationData }}
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu" role="menu" uib-dropdown-menu aria-labelledby="restore-bu">
+                        <li role="menuitem"><a href="/">{{ 'USE_ADVANCED_MODE' | translate }}</a></li>
+                        <li role="menuitem"><a ng-click="topBarCtrl.logOut()">{{ 'LOG_OUT' | translate }}</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

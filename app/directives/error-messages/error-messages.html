@@ -1,0 +1,6 @@
+<div class="alert alert-danger" ng-repeat="message in errorMessagesCtrl.errorMessages">
+    <i class="fa {{::message.icon}}"></i>
+    <span ng-repeat="key in ::message.keys">
+        {{key | translate}}
+    </span>
+</div>

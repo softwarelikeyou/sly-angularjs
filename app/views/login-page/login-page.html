@@ -1,0 +1,31 @@
+
+<top-bar class="navbar-fixed-top"></top-bar>
+<div class="container" style="padding-top: 24px">
+
+    <div class="row">
+
+        <div class="alert alert-danger col-md-4 col-md-offset-4" ng-if="loginPageCtrl.loginFailed">
+            <i class="fa fa-exclamation-triangle"></i>
+            {{ 'LOGIN_FAILED' | translate }}
+        </div>
+
+        <div class="panel panel-default col-md-4 col-md-offset-4">
+
+
+            <form name="loginForm" ng-submit="loginPageCtrl.login(loginPageCtrl.credentials)" style="margin: 8px">
+                <div class="form-group row required">
+                    <label for="username">{{ 'USERNAME' | translate }}:</label>
+                    <input type="text" id="username" ng-model="loginPageCtrl.credentials.username" class="form-control" required>
+                </div>
+                <div class="form-group row required">
+                    <label for="password">{{ 'PASSWORD' | translate }}:</label>
+                    <input type="password" id="password" ng-model="loginPageCtrl.credentials.password" class="form-control" required>
+                </div>
+                <div class="row text-center">
+                    <button type="submit" class="btn btn-primary">{{ 'LOGIN' | translate }}</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+</div>

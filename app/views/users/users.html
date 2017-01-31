@@ -1,0 +1,38 @@
+<top-bar class="navbar-fixed-top"></top-bar>
+<div id="users" class="panel panel-default">
+
+    <div class="panel-heading">
+        <h3 class="panel-title">{{ 'USERS' | translate }}</h3>
+    </div>
+
+    <div class="panel-body">
+
+        <div class="panel-button-row">
+
+            <button id="add-user-button" type="button" class="btn btn-default" ng-click="usersCtrl.onClickCreateUser()">
+                <i class="fa fa-plus"></i> {{ 'NEW_USER' | translate }}
+            </button>
+            <div class="btn-group" dropdown="dropdown-menu" uib-dropdown is-open="status.isopen">
+                <button id="more-button" type="button" class="btn btn-default" uib-dropdown-toggle
+                        ng-disabled="!usersCtrl.selected">{{ 'MORE' | translate }} <i class="fa fa-caret-down"></i>
+                </button>
+                <ul class="dropdown-menu" role="menu" uib-dropdown-menu aria-labelledby="more-button">
+                    <li role="menuitem"><button type="button" class="btn btn-link" id="edit-user" ng-click="usersCtrl.onClickEditUser()">{{ 'EDIT_USER' | translate }}</button></li>
+                    <li class="divider"></li>
+                    <li role="menuitem"><button type="button" class="btn btn-link" id="remove-user" ng-click="usersCtrl.onClickRemoveUser()">{{ 'REMOVE_USER' | translate }}</button></li>
+                </ul>
+            </div>
+        </div>
+
+        <div id="grid1"
+             class="grid"
+             ui-grid="usersCtrl.gridOptions"
+             ui-grid-resize-columns
+             ui-grid-selection
+             sly-ui-grid-empty
+             ng-class="{ 'empty-grid' : usersCtrl.gridOptions.data.length === 0}">
+        </div>
+
+    </div>
+</div>
+
